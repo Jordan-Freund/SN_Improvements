@@ -4,7 +4,7 @@
 // @version      0.1.0
 // @description  Add button to autocomplete Midmark Tasks
 // @author       Jordan Lang
-// @homepageURL  https://github.com/VivianVerdant/service-now-userscripts
+// @homepageURL  https://github.com/Jordan-Freund/SN_Improvements
 // @match        https://*.service-now.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=service-now.com
 // @require      https://github.com/VivianVerdant/service-now-userscripts/raw/refs/heads/main/lib/Service-Now-Utilities.js
