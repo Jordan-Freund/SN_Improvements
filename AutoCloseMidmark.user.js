@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         AutoCloseMidmark
+// @name         Service-Now Midmark Button
 // @namespace    https://github.com/Jordan-Freund/SN_Improvements
-// @version      0.1.0
+// @version      0.2.0
 // @description  Add button to autocomplete Midmark Tasks
 // @author       Jordan Lang
 // @homepageURL  https://github.com/Jordan-Freund/SN_Improvements
@@ -41,61 +41,25 @@
 
 switch (location) {
     case "/sc_task.do":
-        console.log("This tab is a TASK");
-        wait_for_element("sc_task.short_description", searchDescription, true, document);
-        searchDescription("sc_task.short_description");
-        console.log("Completed Waiting for Element");
+        task();
         break;
     default:
         break;
     }
 })();
 function task() {
-    const page_type = "AWHMidmark";
-    add_header_button("Midmark Install", AWHMidmark);
-}
-
-function searchDescription() {
-    window.addEventListener('load', () => {
-    console.log("Searching for Midmark Info");
-    const shortDescField = document.getElementById("sc_task.short_description");
-    if (shortDescField) {
-        const textValue = shortDescField.value || shortDescField.textContent;
-        if (textValue.includes("Midmark")) {
-            console.log("Midmark found in short description!");
-            task();
-        } else {
-            console.log("Midmark not found.");
+    wait_for_element("[id='sc_task.short_description']",(node) => {
+        if (node.value.includes("Midmark")) {
+            console.debug("Midmark found in short description!");
+            add_header_button("Midmark Install", AWHMidmark);
         }
-    } else {
-    console.warn("Short description field not found.");
-    }
     });
 }
 
 const AWHMidmark = () => {
-    const workNotesField = document.getElementById("activity-stream-work_notes-textarea");
     console.log("Testing");
     g_form.setValue("work_notes", "Installed and configured Midmark.");
     g_form.setValue("state", 3);
     g_form.setValue("u_category", "Hardware");
-    workNotesField.className = "sn-string-textarea form-control ng-isolate-scope ng-touched ng-dirty ng-valid-parse ng-not-empty ng-valid ng-valid-required";
-    workNotesField.setAttribute("aria-invalid", "false")
     setTimeout(() => {g_form.save();}, 200);
-}
-
-function getFieldByLabel(labelText) {
-    const labels = Array.from(document.querySelectorAll("label"));
-    for (const label of labels) {
-        return console.log(label);
-        if (label.textContent.trim() === labelText) {
-            const fieldContainer = label.closest(".form-group, .form-field");
-            return console.log("CHECKING FOR PARENT TAG");
-            if (fieldContainer) {
-                return fieldContainer.querySelector("input, textarea, select");
-            }
-        }
-    }
-    return null;
-
 }
