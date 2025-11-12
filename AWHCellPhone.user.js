@@ -117,7 +117,7 @@ const locationTable = {
 function makeButtons() {
     const page_type = "AWHCellPhone";
     add_header_button("Order Cell",orderCellPhone);
-    add_header_button("CHG Area Code",()=>{g_form.addInfoMessage(page_type);});
+    //add_header_button("CHG Area Code",()=>{g_form.addInfoMessage(page_type);});
 }
 
 
