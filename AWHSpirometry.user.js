@@ -57,6 +57,7 @@ function task() {
 }
 
 const AWHSpirometry = () => {
+	assignToMe();
     g_form.setValue("work_notes", "Installed and configured Spirometry.");
     g_form.setValue("state", 3);
     g_form.setValue("u_category", "Hardware");
