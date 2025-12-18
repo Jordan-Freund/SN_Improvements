@@ -60,6 +60,6 @@ const AWHSpirometry = () => {
     g_form.setValue("work_notes", "Installed and configured Spirometry.");
     g_form.setValue("state", 3);
     g_form.setValue("u_category", "Hardware");
-	break;
+	//break;
     //setTimeout(() => {g_form.save();}, 200);
 }
