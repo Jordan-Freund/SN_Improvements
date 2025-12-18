@@ -172,40 +172,6 @@ function checkProvider() {
 
 }
 
-//function ritmActivation() {
-	//console.log("Opening RITM page");
-	//document.querySelectorAll('button.icon-info')[1].click();
-	//setTimeout(openRitmWindow,2000);
-    //setTimeout(shSelect,8000);
-//}
-
-//function shSelect() {
-//const rows = document.querySelectorAll('.list2_body.-sticky-group-headers .list_row');
-//rows.forEach(row => {
-    // Get all cells with class 'vt' in the current row
-    //const cells = row.querySelectorAll('.vt');
-    // Check if any cell contains "S&H"
-    //const containsSH = Array.from(cells).some(cell => cell.innerHTML.includes('S&amp;H'));
-    //if (containsSH) {
-        // Find the first link in the row and click it
-        //const link = row.querySelector('a');
-        //if (link) {
-            //link.click();
-            //console.log('Clicked link in row containing "S&H"');
-        //} else {
-            //console.warn('No link found in row containing "S&H"');
-       //}
-    //}
-//});
-
-//}
-
-//function openRitmWindow() {
-	//const ritmLinkList = document.querySelectorAll('a[href*="sc_req_item.do?sys_id="]');
-	//const ritmLink = ritmLinkList[0];
-	//ritmLink.click();
-//}
-
 function orderCellPhone() {
     console.log("Attempting to order cell phone");
     let tempLocation = getLocation().toUpperCase();
@@ -214,11 +180,10 @@ function orderCellPhone() {
     let isProvider = checkProvider();
     let effectiveDate = g_form.getValue("effective_date");
     console.log(areaCode);
-    //g_form.setValue("assignment_group","AWH-Hardware Procurement");
     g_form.setValue("assignment_group", "511c0b7fdb0101141ab5121d139619fb", "AWH-Hardware Procurement")
     g_form.setValue("short_description", `New Colleague - New Cell Phone Order - ${userName} - ${effectiveDate}${isProvider}`);
     g_form.setValue("work_notes", `Please order a new cell phone for ${userName}\nRequested Area Code: ${areaCode} (${tempLocation})\nThank you!`);
-	//ritmActivation();
+	g_form.setValue("request_item.comments", `Hello,\n\nYou will be receiving your cell phone separately from your onboarding package.\n\nThanks,\n${assignedTech}\nIT Shipping and Receiving`)
 }
 
 function getFieldByLabel(labelText) {
