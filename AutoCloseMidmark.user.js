@@ -57,7 +57,7 @@ function task() {
 }
 
 const AWHMidmark = () => {
-    console.log("Testing");
+    assignToMe();
     g_form.setValue("work_notes", "Installed and configured Midmark.");
     g_form.setValue("state", 3);
     g_form.setValue("u_category", "Hardware");
