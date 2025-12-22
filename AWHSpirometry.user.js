@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Service-Now Spirometry Button
 // @namespace    https://github.com/Jordan-Freund/SN_Improvements
-// @version      0.2.0
+// @version      0.2.2
 // @description  Add button to autocomplete Spirometry Tasks
 // @author       Jordan Lang
 // @homepageURL  https://github.com/Jordan-Freund/SN_Improvements
